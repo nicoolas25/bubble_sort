@@ -1,5 +1,3 @@
-sequence = [4, 3, 5, 0, 1]
-swaps = 0
 
 def swap(array, index_1, index_2)
   tmp = array[index_1]
@@ -16,25 +14,35 @@ def sorted?(sequence)
   true
 end
 
-until sorted?(sequence)
-  previous_index = 0
-  current_index = 1
-
-  # puts sequence.inspect
-  while current_index < sequence.size
-    if sequence[previous_index] > sequence[current_index]
-      swap(sequence, previous_index, current_index)
-    end
+def swaps(sequence)
+  swaps = 0
+  until sorted?(sequence)
+    previous_index = 0
+    current_index = 1
 
     # puts sequence.inspect
+    while current_index < sequence.size
+      if sequence[previous_index] > sequence[current_index]
+        swap(sequence, previous_index, current_index)
+        swaps += 1
+      end
 
-    previous_index += 1
-    current_index += 1
+      # puts sequence.inspect
+
+      previous_index += 1
+      current_index += 1
+    end
   end
+  return swaps
 end
 
-result = sequence
+a = [4, 3, 5, 0, 1]
+permutation = a.permutation.to_a
 
-puts "Final result: #{result}"
-puts "Swaps: #{swaps}"
+result = permutation.max_by { |sequence| swaps(sequence.dup) }
+numberofswaps = swaps(result.dup)
+numberofswaps2 = swaps([5, 4, 3, 1, 0])
 
+puts result
+puts numberofswaps
+puts numberofswaps2
