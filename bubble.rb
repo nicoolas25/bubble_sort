@@ -1,4 +1,3 @@
-
 def swap(array, index_1, index_2)
   tmp = array[index_1]
   array[index_1] = array[index_2]
@@ -36,13 +35,19 @@ def swaps(sequence)
   return swaps
 end
 
-a = [4, 3, 5, 0, 1]
-permutation = a.permutation.to_a
+# a = [4, 3, 5, 0, 1]
+# permutation = a.permutation.to_a
+# 
+# result = permutation.max_by { |sequence| swaps(sequence.dup) }
+# numberofswaps = swaps(result.dup)
+# numberofswaps2 = swaps([5, 4, 3, 1, 0])
+# 
+# puts result
+# puts numberofswaps
+# puts numberofswaps2
 
-result = permutation.max_by { |sequence| swaps(sequence.dup) }
-numberofswaps = swaps(result.dup)
-numberofswaps2 = swaps([5, 4, 3, 1, 0])
-
-puts result
-puts numberofswaps
-puts numberofswaps2
+class BubbleSort
+  def self.sort(s)
+    s
+  end
+end
